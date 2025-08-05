@@ -2,7 +2,39 @@
 title: "eds212-day2-tasks-quarto"
 format: html
 editor: visual
+---
+
+```{r}
 
 library(ggplot2)
 library(palmerpenguins)
 library(tidyverse)
+```
+
+
+```{r}
+fd_fx <- D(expr = expression(x^2), name = "x")
+x <- 3
+eval(fd_fx)
+```
+
+
+```{r}
+pd_pa <- D(expr = expression(2 * ((3 * a + 2) ^4) - 5), name = "a")
+a <- 1.2
+eval(pd_pa)
+```
+# Section 4
+
+#storing derivative 
+
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) + geom_jitter(aes(color = species))
+```
+
+```{r}
+ggplot(data = penguins, aes(x = species, y = flipper_length_mm)) + geom_jitter(aes(color = species))
+```
+
+
+
