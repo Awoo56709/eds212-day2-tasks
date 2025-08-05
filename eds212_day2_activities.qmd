@@ -1,0 +1,8 @@
+---
+title: "eds212-day2-tasks-quarto"
+format: html
+editor: visual
+
+library(ggplot2)
+library(palmerpenguins)
+library(tidyverse)
