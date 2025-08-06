@@ -4,6 +4,10 @@ format: html
 editor: visual
 ---
 
+#test derivative 
+#g(t) = 2.2 + (3.1 * t) - 5.6 * t^4 + (4.3/t^3)
+
+
 ```{r}
 
 library(ggplot2)
@@ -11,9 +15,16 @@ library(palmerpenguins)
 library(tidyverse)
 ```
 
+```{r}
+
+fd_ft <- D(expr = expression(2.2 + (3.1 * t) - 5.6 * t ^4 + (4.3/ t ^3)), name = "t")
+fd_ft
+
+```
 
 ```{r}
 fd_fx <- D(expr = expression(x^2), name = "x")
+fd_fx
 x <- 3
 eval(fd_fx)
 ```
@@ -29,7 +40,14 @@ eval(pd_pa)
 #storing derivative 
 
 ```{r}
-ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) + geom_jitter(aes(color = species))
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) + geom_jitter(aes(color = species)) + scale_color_manual(values = c("red","blue","black")) + 
+  labs(x = "Bill Length",
+       y = "Bill Depth",
+       title = "Bill Length vs Bill Depth",
+       subtitle = "Antartica (2007 - 2009)",
+       caption = "Collected by Dr. Kristen Gorman") +
+  facet_wrap(~island)
+theme_minimal
 ```
 
 ```{r}
